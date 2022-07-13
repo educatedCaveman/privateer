@@ -43,8 +43,8 @@ services:
       - TZ=America/New_York
       - WEBUI_PORT=8080
     volumes:
-      - /home/drake/docker/privateer/config/qbittorrent:/config
-      - /home/drake/docker/privateer/data/downloads:/downloads
+      - /home/drake/privateer/config/qbittorrent:/config
+      - /mnt/mobius/staging/qbittorrent:/downloads
     restart: unless-stopped
     network_mode:  service:vpn
     depends_on:
@@ -59,9 +59,9 @@ services:
       - PGID=1000
       - TZ=America/New_York
     volumes:
-      - /home/drake/docker/privateer/config/radarr:/config
-      - /home/drake/docker/privateer/data/movies:/movies
-      - /home/drake/docker/privateer/data/downloads:/downloads
+      - /home/drake/privateer/config/radarr:/config
+      - /mnt/mobius/Video/Movies:/movies
+      - /mnt/mobius/staging/qbittorrent:/downloads
     restart: unless-stopped
     network_mode:  service:vpn
     depends_on:
@@ -76,9 +76,9 @@ services:
       - PGID=1000
       - TZ=America/New_York
     volumes:
-      - /home/drake/docker/privateer/config/sonarr:/config
-      - /home/drake/docker/privateer/data/tv:/tv
-      - /home/drake/docker/privateer/data/downloads:/downloads
+      - /home/drake/privateer/config/sonarr:/config
+      - mnt/mobius/Video/TV-shows:/tv
+      - /mnt/mobius/staging/qbittorrent:/downloads
     restart: unless-stopped
     network_mode:  service:vpn
     depends_on:
@@ -93,9 +93,9 @@ services:
       - PGID=1000
       - TZ=America/New_York
     volumes:
-      - /home/drake/docker/privateer/config/lidarr:/config
-      - /home/drake/docker/privateer/data/music:/music
-      - /home/drake/docker/privateer/data/downloads:/downloads
+      - /home/drake/privateer/config/lidarr:/config
+      - /mnt/mobius/Music/library:/music
+      - /mnt/mobius/staging/qbittorrent:/downloads
     restart: unless-stopped
     network_mode:  service:vpn
     depends_on:
@@ -110,9 +110,10 @@ services:
       - PGID=1000
       - TZ=America/New_York
     volumes:
-      - /home/drake/docker/privateer/config/readarr:/config
-      - /home/drake/docker/privateer/data/books:/books
-      - /home/drake/docker/privateer/data/downloads:/downloads
+      - /home/drake/privateer/config/readarr:/config
+      #TODO: create this mount point
+      - /mnt/mobius/Books:/books
+      - /mnt/mobius/staging/qbittorrent:/downloads
     restart: unless-stopped
     network_mode:  service:vpn
     depends_on:
@@ -128,7 +129,8 @@ services:
       - UMASK=002
       - TZ=America/New_York
     volumes:
-      - /home/drake/docker/privateer/config/whisparr:/config
+      - /home/drake/privateer/config/whisparr:/config
+      #TODO: where should it point to the vids?
     restart: unless-stopped
     network_mode:  service:vpn
     depends_on:
@@ -143,7 +145,7 @@ services:
       - PGID=1000
       - TZ=America/New_York
     volumes:
-      - /home/drake/docker/privateer/config/prowlarr:/config
+      - /home/drake/privateer/config/prowlarr:/config
     restart: unless-stopped
     network_mode:  service:vpn
     depends_on:
@@ -158,9 +160,9 @@ services:
       - PGID=1000
       - TZ=America/New_York
     volumes:
-      - /home/drake/docker/privateer/config/bazarr:/config
-      - /home/drake/docker/privateer/data/movies:/movies
-      - /home/drake/docker/privateer/data/tv:/tv
+      - /home/drake/privateer/config/bazarr:/config
+      - /mnt/mobius/Video/Movies:/movies
+      - /mnt/mobius/Video/TV-shows:/tv
     restart: unless-stopped
     network_mode:  service:vpn
     depends_on:
@@ -175,9 +177,10 @@ services:
       - PGID=1000
       - TZ=America/New_York
     volumes:
-      - /home/drake/docker/privateer/config/mylarr3:/config
-      - /home/drake/docker/privateer/data/comics:/comics
-      - /home/drake/docker/privateer/data/downloads:/downloads
+      - /home/drake/privateer/config/mylarr3:/config
+      #TODO: create this dataset
+      - /mnt/mobius/Comics:/comics
+      - /mnt/mobius/staging/qbittorrent:/downloads
     restart: unless-stopped
     network_mode:  service:vpn
     depends_on:
@@ -210,7 +213,7 @@ services:
   #     - LOG_LEVEL=:info #optional
   #     - JAVA_OPTS=<not_set_by_default> #optional
   #   volumes:
-  #     - /home/drake/docker/privateer/config/doplarr:/config
+  #     - /home/drake/privateer/config/doplarr:/config
   #   restart: unless-stopped
   #   # # dont bind to the VPN?
   #   # network_mode:  service:vpn
