@@ -1,29 +1,10 @@
 ---
 # https://github.com/bubuntux/nordlynx
 # https://github.com/bubuntux/norvpn	# obsoltete, but still useful
-
 # *Arrs: https://wiki.servarr.com/
 
 version: "3"
 services:
-  # vpn:
-  #   image: ghcr.io/bubuntux/nordlynx
-  #   cap_add:
-  #     - NET_ADMIN #required
-  #     - NET_RAW
-  #   environment:
-  #     - PRIVATE_KEY=0IKHcgkCwrkSIOAmp2YFbCFeW8ZRuGk1LeAAUR5sNnk=
-  #     - NET_LOCAL=192.168.0.0/16
-  #   ports:
-  #     - 8080:8080   #qBittorrent
-  #     - 7878:7878   #Radarr
-  #     - 8989:8989   #Sonarr
-  #     - 8686:8686   #Lidarr
-  #     - 8787:8787   #Readarr
-  #     - 6969:6969   #Whisparr
-  #     - 9696:9696   #Prowlarr
-  #   sysctls:
-  #    - net.ipv6.conf.all.disable_ipv6=1
 
   vpn:
     image: misioslav/expressvpn:latest
@@ -40,7 +21,7 @@ services:
       - 6767:6767   #Bazarr
       - 8090:8090   #Mylarr3
     environment:
-      - CODE=<redacted>
+      # - CODE=<redacted> # containe in the .env file
       - SERVER=smart
     cap_add:
       - NET_ADMIN
