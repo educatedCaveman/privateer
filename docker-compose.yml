@@ -77,7 +77,7 @@ services:
       - TZ=America/New_York
     volumes:
       - /home/drake/privateer/config/sonarr:/config
-      - mnt/mobius/Video/TV-shows:/tv
+      - /mnt/mobius/Video/TV-shows:/tv
       - /mnt/mobius/staging/qbittorrent:/downloads
     restart: unless-stopped
     network_mode:  service:vpn
