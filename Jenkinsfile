@@ -13,21 +13,24 @@ pipeline {
     stages {
 
         // deploy code to sevastopol, when the branch is 'master'
-        stage('deploy prd code') {
+        stage('deploy') {
             when { branch 'master' }
             steps {
-                // deploy configs to PRD
-                echo 'deploy git repo'
-                //TODO: have a purpose built playbook for this?
-                // sh 'ansible-playbook ${ANSIBLE_REPO}/deploy/docker/deploy_docker_compose_prd.yml --extra-vars repo="privateer"'
-                echo 'decrypt repo'
+                echo 'deploy and decrypt repo'
                 sh 'ansible-playbook ${ANSIBLE_REPO}/deploy/git-crypt.yml -e repo="syncthing" -l "seedbox2"'
             }
         }
 
-        //TODO: redeploy the stack
-
+        // deploy code to sevastopol, when the branch is 'master'
+        stage('restart') {
+            when { branch 'master' }
+            steps {
+                echo 'restart the stack'
+                sh 'ansible-playbook ${ANSIBLE_REPO}/deploy/docker/deploy_seedbox2.yml'
+            }
+        }
     }
+    
     post {
         always {
             discordSend \

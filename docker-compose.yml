@@ -21,7 +21,7 @@ services:
       - 6767:6767   #Bazarr
       - 8090:8090   #Mylarr3
     environment:
-      # - CODE=<redacted> # containe in the .env file
+      - "CODE=${VPN_CODE}" # contained in the .env file
       - SERVER=smart
     cap_add:
       - NET_ADMIN
