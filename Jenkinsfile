@@ -12,20 +12,11 @@ pipeline {
 
     stages {
 
-        // deploy code to sevastopol, when the branch is 'master'
-        stage('deploy') {
+        // deploy code to seedbox2
+        stage('push and restart') {
             when { branch 'master' }
             steps {
-                echo 'deploy and decrypt repo'
-                sh 'ansible-playbook ${ANSIBLE_REPO}/deploy/git-crypt.yml -e repo="syncthing" -l "seedbox2"'
-            }
-        }
-
-        // deploy code to sevastopol, when the branch is 'master'
-        stage('restart') {
-            when { branch 'master' }
-            steps {
-                echo 'restart the stack'
+                echo 'push code and restart the stack'
                 sh 'ansible-playbook ${ANSIBLE_REPO}/deploy/docker/deploy_seedbox2.yml'
             }
         }

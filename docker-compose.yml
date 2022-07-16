@@ -111,7 +111,6 @@ services:
       - TZ=America/New_York
     volumes:
       - /home/drake/privateer/config/readarr:/config
-      #TODO: create this mount point
       - /mnt/mobius/Books:/books
       - /mnt/mobius/staging/qbittorrent:/downloads
     restart: unless-stopped
@@ -178,7 +177,6 @@ services:
       - TZ=America/New_York
     volumes:
       - /home/drake/privateer/config/mylarr3:/config
-      #TODO: create this dataset
       - /mnt/mobius/Comics:/comics
       - /mnt/mobius/staging/qbittorrent:/downloads
     restart: unless-stopped
