@@ -25,13 +25,14 @@ services:
       - SERVER=smart
     cap_add:
       - NET_ADMIN
-      - NET_RAW
+      # - NET_RAW
     devices:
       - /dev/net/tun
     stdin_open: true
     tty: true
     command: /bin/bash
     privileged: true
+    network_mode: bridge
       
   # https://github.com/linuxserver/docker-qbittorrent
   qbittorrent:
