@@ -1,0 +1,17 @@
+{
+    "books": {
+        "save_path": "/downloads/books"
+    },
+    "comics": {
+        "save_path": "/downloads/comics"
+    },
+    "movies": {
+        "save_path": "/downloads/movies"
+    },
+    "music": {
+        "save_path": "/downloads/music"
+    },
+    "tv_shows": {
+        "save_path": "/downloads/tv_shows"
+    }
+}
