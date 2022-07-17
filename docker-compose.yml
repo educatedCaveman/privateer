@@ -32,6 +32,7 @@ services:
       - /docker/docker-compose/privateer/config/sonarr:/config
       - /mnt/mobius/Video/TV-shows:/tv
       - /mnt/mobius/staging/qbittorrent:/downloads
+      - /mnt/mobius/staging/qbittorrent:/mnt/mobius/staging/qbittorrent
     restart: unless-stopped
     ports: 
       - 8989:8989
@@ -48,6 +49,7 @@ services:
       - /docker/docker-compose/privateer/config/lidarr:/config
       - /mnt/mobius/Music/library:/music
       - /mnt/mobius/staging/qbittorrent:/downloads
+      - /mnt/mobius/staging/qbittorrent:/mnt/mobius/staging/qbittorrent
     restart: unless-stopped
     ports: 
       - 8686:8686
