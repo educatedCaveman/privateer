@@ -12,7 +12,7 @@ services:
       - PGID=1000
       - TZ=America/New_York
     volumes:
-      - /docker/docker-compose/config/radarr:/config
+      - /docker/docker-compose/privateer/config/radarr:/config
       - /mnt/mobius/Video/Movies:/movies
       - /mnt/mobius/staging/qbittorrent:/downloads
     restart: unless-stopped
@@ -28,7 +28,7 @@ services:
       - PGID=1000
       - TZ=America/New_York
     volumes:
-      - /docker/docker-compose/config/sonarr:/config
+      - /docker/docker-compose/privateer/config/sonarr:/config
       - /mnt/mobius/Video/TV-shows:/tv
       - /mnt/mobius/staging/qbittorrent:/downloads
     restart: unless-stopped
@@ -44,7 +44,7 @@ services:
       - PGID=1000
       - TZ=America/New_York
     volumes:
-      - /docker/docker-compose/config/lidarr:/config
+      - /docker/docker-compose/privateer/config/lidarr:/config
       - /mnt/mobius/Music/library:/music
       - /mnt/mobius/staging/qbittorrent:/downloads
     restart: unless-stopped
@@ -60,7 +60,7 @@ services:
       - PGID=1000
       - TZ=America/New_York
     volumes:
-      - /docker/docker-compose/config/prowlarr:/config
+      - /docker/docker-compose/privateer/config/prowlarr:/config
     restart: unless-stopped
     ports: 
       - 9696:9696
@@ -74,7 +74,7 @@ services:
       - PGID=1000
       - TZ=America/New_York
     volumes:
-      - /docker/docker-compose/config/bazarr:/config
+      - /docker/docker-compose/privateer/config/bazarr:/config
       - /mnt/mobius/Video/Movies:/movies
       - /mnt/mobius/Video/TV-shows:/tv
     restart: unless-stopped
