@@ -7,7 +7,7 @@ services:
   # https://github.com/linuxserver/docker-radarr
   radarr:
     image: lscr.io/linuxserver/radarr:latest
-    container_name: radarr
+    # container_name: radarr
     environment:
       - PUID=1000
       - PGID=1000
@@ -23,7 +23,7 @@ services:
   # https://github.com/linuxserver/docker-sonarr
   sonarr:
     image: lscr.io/linuxserver/sonarr:latest
-    container_name: sonarr
+    # container_name: sonarr
     environment:
       - PUID=1000
       - PGID=1000
@@ -39,7 +39,7 @@ services:
   # https://github.com/linuxserver/docker-lidarr
   lidarr:
     image: lscr.io/linuxserver/lidarr:latest
-    container_name: lidarr
+    # container_name: lidarr
     environment:
       - PUID=1000
       - PGID=1000
@@ -55,7 +55,7 @@ services:
   # https://github.com/linuxserver/docker-prowlarr
   prowlarr:
     image: lscr.io/linuxserver/prowlarr:develop
-    container_name: prowlarr
+    # container_name: prowlarr
     environment:
       - PUID=1000
       - PGID=1000
@@ -69,7 +69,7 @@ services:
   # https://github.com/linuxserver/docker-bazarr
   bazarr:
     image: lscr.io/linuxserver/bazarr:latest
-    container_name: bazarr
+    # container_name: bazarr
     environment:
       - PUID=1000
       - PGID=1000
@@ -82,11 +82,11 @@ services:
     ports: 
       - 6767:6767
 
-  # watchtower
-  watchtower:
-    image: containrrr/watchtower
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
-    environment:
-      - TZ=America/New_York
-      - WATCHTOWER_CLEANUP=true
+  # # watchtower
+  # watchtower:
+  #   image: containrrr/watchtower
+  #   volumes:
+  #     - /var/run/docker.sock:/var/run/docker.sock
+  #   environment:
+  #     - TZ=America/New_York
+  #     - WATCHTOWER_CLEANUP=true
