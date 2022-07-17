@@ -13,7 +13,7 @@ services:
       - PGID=1000
       - TZ=America/New_York
     volumes:
-      - /home/drake/privateer/config/radarr:/config
+      - /docker/docker-compose/config/radarr:/config
       - /mnt/mobius/Video/Movies:/movies
       - /mnt/mobius/staging/qbittorrent:/downloads
     restart: unless-stopped
@@ -29,7 +29,7 @@ services:
       - PGID=1000
       - TZ=America/New_York
     volumes:
-      - /home/drake/privateer/config/sonarr:/config
+      - /docker/docker-compose/config/sonarr:/config
       - /mnt/mobius/Video/TV-shows:/tv
       - /mnt/mobius/staging/qbittorrent:/downloads
     restart: unless-stopped
@@ -45,7 +45,7 @@ services:
       - PGID=1000
       - TZ=America/New_York
     volumes:
-      - /home/drake/privateer/config/lidarr:/config
+      - /docker/docker-compose/config/lidarr:/config
       - /mnt/mobius/Music/library:/music
       - /mnt/mobius/staging/qbittorrent:/downloads
     restart: unless-stopped
@@ -61,7 +61,7 @@ services:
       - PGID=1000
       - TZ=America/New_York
     volumes:
-      - /home/drake/privateer/config/prowlarr:/config
+      - /docker/docker-compose/config/prowlarr:/config
     restart: unless-stopped
     ports: 
       - 9696:9696
@@ -75,18 +75,18 @@ services:
       - PGID=1000
       - TZ=America/New_York
     volumes:
-      - /home/drake/privateer/config/bazarr:/config
+      - /docker/docker-compose/config/bazarr:/config
       - /mnt/mobius/Video/Movies:/movies
       - /mnt/mobius/Video/TV-shows:/tv
     restart: unless-stopped
     ports: 
       - 6767:6767
 
-  # # watchtower
-  # watchtower:
-  #   image: containrrr/watchtower
-  #   volumes:
-  #     - /var/run/docker.sock:/var/run/docker.sock
-  #   environment:
-  #     - TZ=America/New_York
-  #     - WATCHTOWER_CLEANUP=true
+  # watchtower
+  watchtower:
+    image: containrrr/watchtower
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+      - TZ=America/New_York
+      - WATCHTOWER_CLEANUP=true
