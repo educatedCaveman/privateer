@@ -1,59 +1,8 @@
 ---
-# https://github.com/bubuntux/nordlynx
-# https://github.com/bubuntux/norvpn	# obsoltete, but still useful
 # *Arrs: https://wiki.servarr.com/
 
 version: "3"
 services:
-
-  # vpn:
-  #   image: misioslav/expressvpn:latest
-  #   container_name: expressvpn
-  #   restart: unless-stopped
-  #   ports: 
-  #     - 8080:8080   #qBittorrent
-  #     - 7878:7878   #Radarr
-  #     - 8989:8989   #Sonarr
-  #     - 8686:8686   #Lidarr
-  #     - 8787:8787   #Readarr
-  #     - 6969:6969   #Whisparr
-  #     - 9696:9696   #Prowlarr
-  #     - 6767:6767   #Bazarr
-  #     - 8090:8090   #Mylarr3
-  #   environment:
-  #     - "CODE=${VPN_CODE}" # contained in the .env file
-  #     - SERVER=smart
-  #   cap_add:
-  #     - NET_ADMIN
-  #     # - NET_RAW
-  #   devices:
-  #     - /dev/net/tun
-  #   stdin_open: true
-  #   tty: true
-  #   command: /bin/bash
-  #   privileged: true
-  #   network_mode: bridge
-      
-  # https://github.com/linuxserver/docker-qbittorrent
-  qbittorrent:
-    image: lscr.io/linuxserver/qbittorrent:latest
-    container_name: qbittorrent
-    environment:
-      - PUID=1000
-      - PGID=1000
-      - TZ=America/New_York
-      - WEBUI_PORT=8080
-    volumes:
-      - /home/drake/privateer/config/qbittorrent:/config
-      - /mnt/mobius/staging/qbittorrent:/downloads
-    restart: unless-stopped
-    # network_mode:  service:vpn
-    # depends_on:
-    #   - vpn
-    ports: 
-      - 8080:8080   #qBittorrent
-      - 6881:6881
-      - 6881:6881/udp
 
   # https://github.com/linuxserver/docker-radarr
   radarr:
@@ -68,11 +17,8 @@ services:
       - /mnt/mobius/Video/Movies:/movies
       - /mnt/mobius/staging/qbittorrent:/downloads
     restart: unless-stopped
-    # network_mode:  service:vpn
-    # depends_on:
-    #   - vpn
     ports: 
-      - 7878:7878   #Radarr
+      - 7878:7878
       
   # https://github.com/linuxserver/docker-sonarr
   sonarr:
@@ -87,11 +33,8 @@ services:
       - /mnt/mobius/Video/TV-shows:/tv
       - /mnt/mobius/staging/qbittorrent:/downloads
     restart: unless-stopped
-    # network_mode:  service:vpn
-    # depends_on:
-    #   - vpn
     ports: 
-      - 8989:8989   #Sonarr
+      - 8989:8989
 
   # https://github.com/linuxserver/docker-lidarr
   lidarr:
@@ -106,49 +49,8 @@ services:
       - /mnt/mobius/Music/library:/music
       - /mnt/mobius/staging/qbittorrent:/downloads
     restart: unless-stopped
-    # network_mode:  service:vpn
-    # depends_on:
-    #   - vpn
     ports: 
-      - 8686:8686   #Lidarr
-
-  # https://github.com/linuxserver/docker-readarr
-  readarr:
-    image: lscr.io/linuxserver/readarr:develop
-    container_name: readarr
-    environment:
-      - PUID=1000
-      - PGID=1000
-      - TZ=America/New_York
-    volumes:
-      - /home/drake/privateer/config/readarr:/config
-      - /mnt/mobius/Books:/books
-      - /mnt/mobius/staging/qbittorrent:/downloads
-    restart: unless-stopped
-    # network_mode:  service:vpn
-    # depends_on:
-    #   - vpn
-    ports: 
-      - 8787:8787   #Readarr
-
-  # https://hotio.dev/containers/whisparr/
-  whisparr:
-    container_name: whisparr
-    image: cr.hotio.dev/hotio/whisparr:nightly
-    environment:
-      - PUID=1000
-      - PGID=1000
-      - UMASK=002
-      - TZ=America/New_York
-    volumes:
-      - /home/drake/privateer/config/whisparr:/config
-      #TODO: where should it point to the vids?
-    restart: unless-stopped
-    # network_mode:  service:vpn
-    # depends_on:
-    #   - vpn
-    ports: 
-      - 6969:6969   #Whisparr
+      - 8686:8686
 
   # https://github.com/linuxserver/docker-prowlarr
   prowlarr:
@@ -161,11 +63,8 @@ services:
     volumes:
       - /home/drake/privateer/config/prowlarr:/config
     restart: unless-stopped
-    # network_mode:  service:vpn
-    # depends_on:
-    #   - vpn
     ports: 
-      - 9696:9696   #Prowlarr
+      - 9696:9696
 
   # https://github.com/linuxserver/docker-bazarr
   bazarr:
@@ -180,64 +79,8 @@ services:
       - /mnt/mobius/Video/Movies:/movies
       - /mnt/mobius/Video/TV-shows:/tv
     restart: unless-stopped
-    # network_mode:  service:vpn
-    # depends_on:
-    #   - vpn
     ports: 
-      - 6767:6767   #Bazarr
-
-# https://github.com/linuxserver/docker-mylar3
-  mylar3:
-    image: lscr.io/linuxserver/mylar3:latest
-    container_name: mylar3
-    environment:
-      - PUID=1000
-      - PGID=1000
-      - TZ=America/New_York
-    volumes:
-      - /home/drake/privateer/config/mylarr3:/config
-      - /mnt/mobius/Comics:/comics
-      - /mnt/mobius/staging/qbittorrent:/downloads
-    restart: unless-stopped
-    # network_mode:  service:vpn
-    # depends_on:
-    #   - vpn
-    ports: 
-      - 8090:8090   #Mylarr3
-
-  # # https://github.com/linuxserver/docker-doplarr
-  # doplarr:
-  #   image: lscr.io/linuxserver/doplarr:latest
-  #   container_name: doplarr
-  #   environment:
-  #     - PUID=1000
-  #     - PGID=1000
-  #     - TZ=America/New_York
-  #     - DISCORD__TOKEN=<discord__token>
-  #     - OVERSEERR__API=<overseerr__api>
-  #     - OVERSEERR__URL=http://localhost:5055
-  #     - RADARR__API=<radarr__api>
-  #     - RADARR__URL=http://localhost:7878
-  #     - SONARR__API=<sonarr__api>
-  #     - SONARR__URL=http://localhost:8989
-  #     - DISCORD__MAX_RESULTS=25 #optional
-  #     - DISCORD__REQUESTED_MSG_STYLE=:plain #optional
-  #     - SONARR__QUALITY_PROFILE=<not_set_by_default> #optional
-  #     - RADARR__QUALITY_PROFILE=<not_set_by_default> #optional
-  #     - SONARR__ROOTFOLDER=<not_set_by_default> #optional
-  #     - RADARR__ROOTFOLDER=<not_set_by_default> #optional
-  #     - SONARR__LANGUAGE_PROFILE=<not_set_by_default> #optional
-  #     - OVERSEERR__DEFAULT_ID=<not_set_by_default> #optional
-  #     - PARTIAL_SEASONS=true #optional
-  #     - LOG_LEVEL=:info #optional
-  #     - JAVA_OPTS=<not_set_by_default> #optional
-  #   volumes:
-  #     - /home/drake/privateer/config/doplarr:/config
-  #   restart: unless-stopped
-  #   # # dont bind to the VPN?
-  #   # network_mode:  service:vpn
-  #   # depends_on:
-  #   #   - vpn
+      - 6767:6767
 
   # watchtower
   watchtower:
