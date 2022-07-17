@@ -65,6 +65,7 @@ services:
     ports: 
       - 9696:9696
 
+  # the web Ui is currently broken
   # https://github.com/linuxserver/docker-bazarr
   bazarr:
     image: lscr.io/linuxserver/bazarr:latest
@@ -81,11 +82,11 @@ services:
     ports: 
       - 6767:6767
 
-  # watchtower
-  watchtower:
-    image: containrrr/watchtower
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
-    environment:
-      - TZ=America/New_York
-      - WATCHTOWER_CLEANUP=true
+  # # watchtower
+  # watchtower:
+  #   image: containrrr/watchtower
+  #   volumes:
+  #     - /var/run/docker.sock:/var/run/docker.sock
+  #   environment:
+  #     - TZ=America/New_York
+  #     - WATCHTOWER_CLEANUP=true
