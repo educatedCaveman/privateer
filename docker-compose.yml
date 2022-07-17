@@ -6,33 +6,33 @@
 version: "3"
 services:
 
-  vpn:
-    image: misioslav/expressvpn:latest
-    container_name: expressvpn
-    restart: unless-stopped
-    ports: 
-      - 8080:8080   #qBittorrent
-      - 7878:7878   #Radarr
-      - 8989:8989   #Sonarr
-      - 8686:8686   #Lidarr
-      - 8787:8787   #Readarr
-      - 6969:6969   #Whisparr
-      - 9696:9696   #Prowlarr
-      - 6767:6767   #Bazarr
-      - 8090:8090   #Mylarr3
-    environment:
-      - "CODE=${VPN_CODE}" # contained in the .env file
-      - SERVER=smart
-    cap_add:
-      - NET_ADMIN
-      # - NET_RAW
-    devices:
-      - /dev/net/tun
-    stdin_open: true
-    tty: true
-    command: /bin/bash
-    privileged: true
-    network_mode: bridge
+  # vpn:
+  #   image: misioslav/expressvpn:latest
+  #   container_name: expressvpn
+  #   restart: unless-stopped
+  #   ports: 
+  #     - 8080:8080   #qBittorrent
+  #     - 7878:7878   #Radarr
+  #     - 8989:8989   #Sonarr
+  #     - 8686:8686   #Lidarr
+  #     - 8787:8787   #Readarr
+  #     - 6969:6969   #Whisparr
+  #     - 9696:9696   #Prowlarr
+  #     - 6767:6767   #Bazarr
+  #     - 8090:8090   #Mylarr3
+  #   environment:
+  #     - "CODE=${VPN_CODE}" # contained in the .env file
+  #     - SERVER=smart
+  #   cap_add:
+  #     - NET_ADMIN
+  #     # - NET_RAW
+  #   devices:
+  #     - /dev/net/tun
+  #   stdin_open: true
+  #   tty: true
+  #   command: /bin/bash
+  #   privileged: true
+  #   network_mode: bridge
       
   # https://github.com/linuxserver/docker-qbittorrent
   qbittorrent:
@@ -47,9 +47,13 @@ services:
       - /home/drake/privateer/config/qbittorrent:/config
       - /mnt/mobius/staging/qbittorrent:/downloads
     restart: unless-stopped
-    network_mode:  service:vpn
-    depends_on:
-      - vpn
+    # network_mode:  service:vpn
+    # depends_on:
+    #   - vpn
+    ports: 
+      - 8080:8080   #qBittorrent
+      - 6881:6881
+      - 6881:6881/udp
 
   # https://github.com/linuxserver/docker-radarr
   radarr:
@@ -64,9 +68,11 @@ services:
       - /mnt/mobius/Video/Movies:/movies
       - /mnt/mobius/staging/qbittorrent:/downloads
     restart: unless-stopped
-    network_mode:  service:vpn
-    depends_on:
-      - vpn
+    # network_mode:  service:vpn
+    # depends_on:
+    #   - vpn
+    ports: 
+      - 7878:7878   #Radarr
       
   # https://github.com/linuxserver/docker-sonarr
   sonarr:
@@ -81,9 +87,11 @@ services:
       - /mnt/mobius/Video/TV-shows:/tv
       - /mnt/mobius/staging/qbittorrent:/downloads
     restart: unless-stopped
-    network_mode:  service:vpn
-    depends_on:
-      - vpn
+    # network_mode:  service:vpn
+    # depends_on:
+    #   - vpn
+    ports: 
+      - 8989:8989   #Sonarr
 
   # https://github.com/linuxserver/docker-lidarr
   lidarr:
@@ -98,9 +106,11 @@ services:
       - /mnt/mobius/Music/library:/music
       - /mnt/mobius/staging/qbittorrent:/downloads
     restart: unless-stopped
-    network_mode:  service:vpn
-    depends_on:
-      - vpn
+    # network_mode:  service:vpn
+    # depends_on:
+    #   - vpn
+    ports: 
+      - 8686:8686   #Lidarr
 
   # https://github.com/linuxserver/docker-readarr
   readarr:
@@ -115,9 +125,11 @@ services:
       - /mnt/mobius/Books:/books
       - /mnt/mobius/staging/qbittorrent:/downloads
     restart: unless-stopped
-    network_mode:  service:vpn
-    depends_on:
-      - vpn
+    # network_mode:  service:vpn
+    # depends_on:
+    #   - vpn
+    ports: 
+      - 8787:8787   #Readarr
 
   # https://hotio.dev/containers/whisparr/
   whisparr:
@@ -132,9 +144,11 @@ services:
       - /home/drake/privateer/config/whisparr:/config
       #TODO: where should it point to the vids?
     restart: unless-stopped
-    network_mode:  service:vpn
-    depends_on:
-      - vpn
+    # network_mode:  service:vpn
+    # depends_on:
+    #   - vpn
+    ports: 
+      - 6969:6969   #Whisparr
 
   # https://github.com/linuxserver/docker-prowlarr
   prowlarr:
@@ -147,9 +161,11 @@ services:
     volumes:
       - /home/drake/privateer/config/prowlarr:/config
     restart: unless-stopped
-    network_mode:  service:vpn
-    depends_on:
-      - vpn
+    # network_mode:  service:vpn
+    # depends_on:
+    #   - vpn
+    ports: 
+      - 9696:9696   #Prowlarr
 
   # https://github.com/linuxserver/docker-bazarr
   bazarr:
@@ -164,9 +180,11 @@ services:
       - /mnt/mobius/Video/Movies:/movies
       - /mnt/mobius/Video/TV-shows:/tv
     restart: unless-stopped
-    network_mode:  service:vpn
-    depends_on:
-      - vpn
+    # network_mode:  service:vpn
+    # depends_on:
+    #   - vpn
+    ports: 
+      - 6767:6767   #Bazarr
 
 # https://github.com/linuxserver/docker-mylar3
   mylar3:
@@ -181,9 +199,11 @@ services:
       - /mnt/mobius/Comics:/comics
       - /mnt/mobius/staging/qbittorrent:/downloads
     restart: unless-stopped
-    network_mode:  service:vpn
-    depends_on:
-      - vpn
+    # network_mode:  service:vpn
+    # depends_on:
+    #   - vpn
+    ports: 
+      - 8090:8090   #Mylarr3
 
   # # https://github.com/linuxserver/docker-doplarr
   # doplarr:
