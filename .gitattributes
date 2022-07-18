@@ -1,4 +1,0 @@
-# .env filter=git-crypt diff=git-crypt
-# config/*/config.xml filter=git-crypt diff=git-crypt
-# config/bazarr/config/config.ini filter=git-crypt diff=git-crypt
-# *qBittorrent.conf filter=git-crypt diff=git-crypt
