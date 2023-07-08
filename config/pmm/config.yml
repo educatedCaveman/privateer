@@ -2,15 +2,9 @@ libraries:                       # This is called out once within the config.yml
   
   Movies:                        # These are names of libraries in your Plex
     metadata_path: 
-      - file: /config/meta.movies.yml
-      # - pmm: basic               # This is a file within PMM's defaults folder
-      # - pmm: imdb                # This is a file within PMM's defaults folder
-      # see the wiki for how to use local files, folders, URLs, or files from git
+      - file: /config/meta.movies.ymlt
     overlay_path:
       - file: /config/overlay.movies.yml
-      # - remove_overlays: false   # Set this to true to remove all overlays
-      # - pmm: ribbon              # This is a file within PMM's defaults folder
-      # see the wiki for how to use local files, folders, URLs, or files from git
     report_path:
       - file: /config/report.movies.yml
   
