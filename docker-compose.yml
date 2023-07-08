@@ -89,14 +89,7 @@ services:
     image: ghcr.io/flaresolverr/flaresolverr:latest
     hostname: flaresolverr
     environment:
-      # - PUID=1000
-      # - PGID=1000
-      # - TZ=America/New_York
       - LOG_LEVEL=info
-    # volumes:
-    #   - /docker/docker-compose/privateer/config/bazarr:/config
-    #   - /mnt/mobius/Video/Movies:/movies
-    #   - /mnt/mobius/Video/TV-shows:/tv
     restart: unless-stopped
     ports: 
       - 8191:8191
