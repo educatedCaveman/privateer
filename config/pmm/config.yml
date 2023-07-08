@@ -4,19 +4,6 @@ libraries:
     metadata_path: 
       - folder: config/Movies/
     overlay_path:
-      - pmm: ratings
-        template_variables:
-          rating1: audience                                                    # 5 as this is user and mass_user_rating_update: mdb_tomatoes
-          rating1_image: rt_tomato                                         # 5 as this is user and mass_user_rating_update: mdb_tomatoes
-          rating1_font_size: 70                                            # 5 adjusted font size to fit rating
-  
-          rating2: critic                                                  # 6 as this is critic and mass_critic_rating_update: imdb
-          rating2_image: imdb                                              # 6 as this is critic and mass_critic_rating_update: imdb
-          rating2_font_size: 70                                            # 6 adjusted font size to fit rating
-    
-          horizontal_position: right                                       # the set of ratings is on the right of the poster
-      - pmm: resolution
-      - pmm: runtimes
     # report_path:
     #   - file: /config/report.movies.yml
   
@@ -24,9 +11,6 @@ libraries:
     metadata_path:
       - folder: config/TV_Shows/
     overlay_path:
-      - pmm: ratings
-      - pmm: resolution
-      - pmm: status
     # report_path:
     #   - file: /config/report.tv-shows.yml
   
@@ -34,7 +18,6 @@ libraries:
     metadata_path:
       - folder: config/Music/
     overlay_path:
-      - pmm: audio_codec
     # report_path:
     #   - file: /config/report.music.yml
 
