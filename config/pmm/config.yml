@@ -1,6 +1,6 @@
-libraries:                       # This is called out once within the config.yml file
+libraries:
   
-  Movies:                        # These are names of libraries in your Plex
+  Movies: 
     metadata_path: 
       - file: /config/meta.movies.ymlt
     overlay_path:
@@ -78,7 +78,7 @@ settings:
 #   changes:
 
 
-plex:                            # Can be individually specified per library as well; REQUIRED for the script to run
+plex:
   url: http://192.168.12.2:32400
   token: n--TvxMK59ubQV6M95T3
   timeout: 60
@@ -87,7 +87,7 @@ plex:                            # Can be individually specified per library as 
   optimize: false
 
 
-tmdb:                            # REQUIRED for the script to run
+tmdb:
   apikey: 23e9dc942b3c6d577417ced2fa3d537a
   language: en
 
@@ -107,7 +107,7 @@ tmdb:                            # REQUIRED for the script to run
 #   cache_expiration: 60
 
 
-radarr:                          # Can be individually specified per library as well
+radarr:
   url:              http://radarr:7878
   token:            3d9db26094034a4987ed16998a6530a9
   add_missing:      true
@@ -122,7 +122,7 @@ radarr:                          # Can be individually specified per library as 
   # plex_path:
 
 
-sonarr:                          # Can be individually specified per library as well
+sonarr:
   url:              http://sonarr:8989
   token:            3bc4666af115474c8aedf9c038c04203
   add_missing:      false
