@@ -93,3 +93,13 @@ services:
     restart: unless-stopped
     ports: 
       - 8191:8191
+
+  # Plex Meta Manager
+  plex-meta-manager:
+    image: meisnate12/plex-meta-manager
+    container_name: plex-meta-manager
+    environment:
+      - TZ=America/New_York #optional
+    volumes:
+      - /docker/docker-compose/privateer/config/pmm:/config
+    restart: unless-stopped
