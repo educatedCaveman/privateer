@@ -93,9 +93,9 @@ plex:                            # Can be individually specified per library as 
   optimize: false
 
 
-# tmdb:                            # REQUIRED for the script to run
-#   apikey: ################################
-#   language: en
+tmdb:                            # REQUIRED for the script to run
+  apikey: 23e9dc942b3c6d577417ced2fa3d537a
+  language: en
 
 
 # tautulli:                        # Can be individually specified per library as well
