@@ -2,9 +2,12 @@ libraries:
   
   Movies: 
     metadata_path: 
-      - file: /config/meta.movies.ymlt
+      - file: /config/meta.movies.yml
     overlay_path:
       - file: /config/overlay.movies.yml
+      - pmm: ratings
+      - pmm: resolution
+      - pmm: runtimes
     report_path:
       - file: /config/report.movies.yml
   
@@ -13,6 +16,9 @@ libraries:
       - file: /config/meta.tv-shows.yml
     overlay_path:
       - file: /config/overlay.tv-shows.yml
+      - pmm: ratings
+      - pmm: resolution
+      - pmm: status
     report_path:
       - file: /config/report.tv-shows.yml
   
