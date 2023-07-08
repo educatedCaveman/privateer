@@ -8,8 +8,8 @@ libraries:
       - pmm: ratings
       - pmm: resolution
       - pmm: runtimes
-    report_path:
-      - file: /config/report.movies.yml
+    # report_path:
+    #   - file: /config/report.movies.yml
   
   TV Shows:
     metadata_path:
@@ -19,16 +19,16 @@ libraries:
       - pmm: ratings
       - pmm: resolution
       - pmm: status
-    report_path:
-      - file: /config/report.tv-shows.yml
+    # report_path:
+    #   - file: /config/report.tv-shows.yml
   
   Music:
     metadata_path:
       - file: /config/meta.music.yml
     overlay_path:
       - file: /config/overlay.music.yml
-    report_path:
-      - file: /config/report.music.yml
+    # report_path:
+    #   - file: /config/report.music.yml
 
 
 # playlist_files:
