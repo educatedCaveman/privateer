@@ -8,3 +8,5 @@ run the git-crypt commands in the following order:
 4. commit the changes
 5. lock the repo
 6. push the changes to github
+
+test
