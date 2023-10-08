@@ -39,7 +39,7 @@ services:
 
   # https://github.com/linuxserver/docker-lidarr
   lidarr:
-    image: lscr.io/linuxserver/lidarr:latest
+    image: lscr.io/linuxserver/lidarr:1.4.5
     hostname: lidarr
     environment:
       - PUID=1000
@@ -56,7 +56,7 @@ services:
 
   # https://github.com/linuxserver/docker-prowlarr
   prowlarr:
-    image: lscr.io/linuxserver/prowlarr:develop
+    image: lscr.io/linuxserver/prowlarr:1.9.3
     hostname: prowlarr
     environment:
       - PUID=1000
@@ -70,7 +70,7 @@ services:
 
   # https://github.com/linuxserver/docker-bazarr
   bazarr:
-    image: lscr.io/linuxserver/bazarr:latest
+    image: lscr.io/linuxserver/bazarr:1.3.0
     hostname: bazarr
     environment:
       - PUID=1000
@@ -86,7 +86,7 @@ services:
 
   # https://github.com/FlareSolverr/FlareSolverr#installation
   flaresolverr:
-    image: ghcr.io/flaresolverr/flaresolverr:latest
+    image: ghcr.io/flaresolverr/flaresolverr:3.3.5
     hostname: flaresolverr
     environment:
       - LOG_LEVEL=info
@@ -96,7 +96,7 @@ services:
 
   # Plex Meta Manager
   plex-meta-manager:
-    image: meisnate12/plex-meta-manager
+    image: meisnate12/plex-meta-manager:v1.19.1
     container_name: plex-meta-manager
     environment:
       - TZ=America/New_York #optional
