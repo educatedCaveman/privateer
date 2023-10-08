@@ -5,7 +5,7 @@ services:
 
   # https://github.com/linuxserver/docker-radarr
   radarr:
-    image: lscr.io/linuxserver/radarr:latest
+    image: lscr.io/linuxserver/radarr:5.0.3
     hostname: radarr
     environment:
       - PUID=1000
