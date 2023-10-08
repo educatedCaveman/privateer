@@ -86,7 +86,7 @@ services:
 
   # https://github.com/FlareSolverr/FlareSolverr#installation
   flaresolverr:
-    image: ghcr.io/flaresolverr/flaresolverr:3.3.5
+    image: ghcr.io/flaresolverr/flaresolverr:latest
     hostname: flaresolverr
     environment:
       - LOG_LEVEL=info
@@ -96,7 +96,7 @@ services:
 
   # Plex Meta Manager
   plex-meta-manager:
-    image: meisnate12/plex-meta-manager:v1.19.1
+    image: meisnate12/plex-meta-manager:latest
     container_name: plex-meta-manager
     environment:
       - TZ=America/New_York #optional
