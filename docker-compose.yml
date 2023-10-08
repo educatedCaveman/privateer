@@ -86,7 +86,7 @@ services:
 
   # https://github.com/FlareSolverr/FlareSolverr#installation
   flaresolverr:
-    image: ghcr.io/flaresolverr/flaresolverr:latest
+    image: ghcr.io/flaresolverr/flaresolverr:v3.3.6
     hostname: flaresolverr
     environment:
       - LOG_LEVEL=info
