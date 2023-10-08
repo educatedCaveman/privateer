@@ -56,7 +56,7 @@ services:
 
   # https://github.com/linuxserver/docker-prowlarr
   prowlarr:
-    image: lscr.io/linuxserver/prowlarr:1.9.3
+    image: lscr.io/linuxserver/prowlarr:1.8.6.3946-ls33
     hostname: prowlarr
     environment:
       - PUID=1000
