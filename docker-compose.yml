@@ -22,7 +22,7 @@ services:
       
   # https://github.com/linuxserver/docker-sonarr
   sonarr:
-    image: lscr.io/linuxserver/sonarr:latest
+    image: lscr.io/linuxserver/sonarr:3.0.10
     hostname: sonarr
     environment:
       - PUID=1000
