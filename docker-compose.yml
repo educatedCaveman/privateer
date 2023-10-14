@@ -70,7 +70,7 @@ services:
 
   # https://github.com/linuxserver/docker-bazarr
   bazarr:
-    image: lscr.io/linuxserver/bazarr:1.3.0
+    image: lscr.io/linuxserver/bazarr:1.3.1
     hostname: bazarr
     environment:
       - PUID=1000
