@@ -97,7 +97,6 @@ services:
   # Plex Meta Manager
   plex-meta-manager:
     image: meisnate12/plex-meta-manager:v1.19.1
-    container_name: plex-meta-manager
     environment:
       - TZ=America/New_York #optional
     volumes:
