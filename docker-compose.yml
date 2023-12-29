@@ -92,7 +92,7 @@ services:
   # https://github.com/FlareSolverr/FlareSolverr#installation
   flaresolverr:
     # this image should trigger an update
-    image: ghcr.io/flaresolverr/flaresolverr:v3.3.10
+    image: ghcr.io/flaresolverr/flaresolverr:v3.3.12
     hostname: flaresolverr
     environment:
       - LOG_LEVEL=info
