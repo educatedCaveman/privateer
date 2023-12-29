@@ -59,7 +59,7 @@ services:
 
   # https://github.com/linuxserver/docker-prowlarr
   prowlarr:
-    image: lscr.io/linuxserver/prowlarr:sha256:ae4e4cf3144459de7dc11b1ee909c64a67dbd0020006be1b3cc9b5a5f8382921
+    image: lscr.io/linuxserver/prowlarr:1.10.5.4116-ls44
     hostname: prowlarr
     environment:
       - PUID=1000
