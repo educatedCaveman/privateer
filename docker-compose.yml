@@ -6,7 +6,7 @@ services:
   # https://github.com/linuxserver/docker-radarr
   radarr:
     # this image should trigger an update
-    image: lscr.io/linuxserver/radarr:5.0.3.8127-ls192
+    image: lscr.io/linuxserver/radarr:5.0.3
     hostname: radarr
     environment:
       - PUID=1000
@@ -24,7 +24,7 @@ services:
   # https://github.com/linuxserver/docker-sonarr
   sonarr:
     # this image should trigger an update
-    image: lscr.io/linuxserver/sonarr:3.0.10.1567-ls217
+    image: lscr.io/linuxserver/sonarr:3.0.10
     hostname: sonarr
     environment:
       - PUID=1000
@@ -75,7 +75,7 @@ services:
   # https://github.com/linuxserver/docker-bazarr
   bazarr:
     # this image should trigger an update
-    image: lscr.io/linuxserver/bazarr:v1.4.0-ls227
+    image: lscr.io/linuxserver/bazarr:v1.4.0
     hostname: bazarr
     environment:
       - PUID=1000
