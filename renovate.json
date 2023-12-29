@@ -8,7 +8,7 @@
       "groupName": "lscr.io weirdness", 
       "matchDatasources": ["docker-compose"],
       "matchPackagePrefixes": ["bazarr"],
-      "versioning": "regex:^v?(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)-(?<build>ls\\d+)?$"
+      "versioning": "semver"
     },
     {
       "groupName": "lscr.io weirderness", 
