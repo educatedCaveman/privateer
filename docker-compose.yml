@@ -73,8 +73,8 @@ services:
 
   # https://github.com/linuxserver/docker-bazarr
   bazarr:
-    # this image should trigger an update
-    image: lscr.io/linuxserver/bazarr:v1.4.0
+    # this image should trigger an update (does it need the leading v?)
+    image: lscr.io/linuxserver/bazarr:1.4.0-ls228
     hostname: bazarr
     environment:
       - PUID=1000
