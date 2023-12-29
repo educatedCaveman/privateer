@@ -60,7 +60,7 @@ services:
   # https://github.com/linuxserver/docker-prowlarr
   prowlarr:
     # this image should trigger an update
-    image: lscr.io/linuxserver/prowlarr:1.10.5.4116-ls43
+    image: lscr.io/linuxserver/prowlarr:1.10.4
     hostname: prowlarr
     environment:
       - PUID=1000
