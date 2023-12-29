@@ -6,7 +6,7 @@ services:
   # https://github.com/linuxserver/docker-radarr
   radarr:
     # this image should trigger an update
-    image: lscr.io/linuxserver/radarr:5.0.3
+    image: lscr.io/linuxserver/radarr:5.2.6.8376-ls197
     hostname: radarr
     environment:
       - PUID=1000
