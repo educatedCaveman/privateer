@@ -24,7 +24,7 @@ services:
   # https://github.com/linuxserver/docker-sonarr
   sonarr:
     # this image should trigger an update
-    image: lscr.io/linuxserver/sonarr:3.0.10
+    image: lscr.io/linuxserver/sonarr:3.0.10.1567-ls218
     hostname: sonarr
     environment:
       - PUID=1000
