@@ -100,7 +100,7 @@ services:
 
   # Plex Meta Manager
   plex-meta-manager:
-    image: meisnate12/plex-meta-manager:v1.19.1
+    image: meisnate12/plex-meta-manager:v1.20.0
     environment:
       - TZ=America/New_York #optional
     volumes:
