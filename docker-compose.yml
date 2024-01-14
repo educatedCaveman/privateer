@@ -102,7 +102,7 @@ services:
   plex-meta-manager:
     image: meisnate12/plex-meta-manager:v1.20.0
     environment:
-      - TZ=America/New_York #optional
+      - TZ=America/New_York
     volumes:
       - /docker/docker-compose/privateer/config/pmm:/config
     restart: unless-stopped
